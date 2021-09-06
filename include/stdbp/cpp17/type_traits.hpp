@@ -116,7 +116,7 @@ scoped_enum_helper(int i) {
 } // namespace detail
 
 template <typename T, typename = void>
-struct is_scoped_enum : std::bool_constant<std::is_enum_v<T>> {};
+struct is_scoped_enum : std::is_enum<T> {};
 
 template <typename T>
 struct is_scoped_enum<T, std::void_t<decltype(detail::scoped_enum_helper(T()))>> : std::false_type {};
