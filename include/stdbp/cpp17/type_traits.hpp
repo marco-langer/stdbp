@@ -3,6 +3,8 @@
 
 #include <type_traits>
 
+#include "stdbp_common.hpp"
+
 STDBP_NAMESPACE_BEGIN
 
 namespace detail {
