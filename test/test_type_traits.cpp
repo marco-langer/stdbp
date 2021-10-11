@@ -40,6 +40,7 @@ TEST_CASE("type_traits.remove_cvref") {
   CHECK(std::is_same_v<stdbp::remove_cvref<const volatile int &&>::type, int>);
   CHECK(std::is_same_v<stdbp::remove_cvref<int *>::type, int *>);
   CHECK(std::is_same_v<stdbp::remove_cvref<const volatile int * const>::type, const volatile int *>);
+  CHECK(std::is_same_v<stdbp::remove_cvref<const volatile int * const &>::type, const volatile int *>);
   CHECK(std::is_same_v<stdbp::remove_cvref<void>::type, void>);
 
   CHECK(std::is_same_v<stdbp::remove_cvref_t<int>, int>);
@@ -47,6 +48,7 @@ TEST_CASE("type_traits.remove_cvref") {
   CHECK(std::is_same_v<stdbp::remove_cvref_t<const volatile int &&>, int>);
   CHECK(std::is_same_v<stdbp::remove_cvref_t<int *>, int *>);
   CHECK(std::is_same_v<stdbp::remove_cvref_t<const volatile int * const>,const volatile int *>);
+  CHECK(std::is_same_v<stdbp::remove_cvref_t<const volatile int * const &>, const volatile int *>);
   CHECK(std::is_same_v<stdbp::remove_cvref_t<void>, void>);
 }
 

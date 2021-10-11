@@ -68,7 +68,7 @@ inline constexpr bool is_unbounded_array_v STDBP_DEPRECATED = std::is_unbounded_
 
 template <typename T>
 struct remove_cvref {
-  using type = std::remove_reference_t<std::remove_cv_t<T>>;
+  using type = std::remove_cv_t<std::remove_reference_t<T>>;
 };
 
 template <typename T>
