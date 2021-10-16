@@ -1,5 +1,6 @@
 set(PROJECT_SOURCES
     test_type_traits.cpp
+    test_utility.cpp
 )
 
 include(CTest)
