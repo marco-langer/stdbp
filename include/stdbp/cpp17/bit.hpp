@@ -1,12 +1,12 @@
-#ifndef STDBP_BIT_HPP
-#define STDBP_BIT_HPP
+#ifndef STDBP_CPP17_BIT_HPP_INCLUDE
+#define STDBP_CPP17_BIT_HPP_INCLUDE
+
+#include <stdbp/cpp17/common.hpp>
 
 #include <cstring>
 #include <type_traits>
 
-#include "stdbp_common.hpp"
-
-STDBP_NAMESPACE_BEGIN
+STDBP_CPP17_NAMESPACE_BEGIN
 
 #ifndef __cpp_lib_bit_cast
 
@@ -31,10 +31,10 @@ std::enable_if_t<
 #else
 
 template <typename To, typename From>
-using bit_cast STDBP_DEPRECATED = std::bit_cast<To, From>;
+using bit_cast STDBP_CPP17_DEPRECATED = std::bit_cast<To, From>;
 
 #endif
 
-STDBP_NAMESPACE_END
+STDBP_CPP17_NAMESPACE_END
 
 #endif

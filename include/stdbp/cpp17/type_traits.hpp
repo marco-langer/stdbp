@@ -1,11 +1,11 @@
-#ifndef STDBP_TYPE_TRAITS_HPP
-#define STDBP_TYPE_TRAITS_HPP
+#ifndef STDBP_CPP17_TYPE_TRAITS_HPP_INCLUDE
+#define STDBP_CPP17_TYPE_TRAITS_HPP_INCLUDE
+
+#include <stdbp/cpp17/common.hpp>
 
 #include <type_traits>
 
-#include "stdbp_common.hpp"
-
-STDBP_NAMESPACE_BEGIN
+STDBP_CPP17_NAMESPACE_BEGIN
 
 namespace detail {
 
@@ -51,16 +51,16 @@ inline constexpr bool is_unbounded_array_v = is_unbounded_array<T>::value;
 #else
 
 template <typename T>
-using is_bounded_array STDBP_DEPRECATED = std::is_bounded_array<T>;
+using is_bounded_array STDBP_CPP17_DEPRECATED = std::is_bounded_array<T>;
 
 template <typename T>
-inline constexpr bool is_bounded_array_v STDBP_DEPRECATED = std::is_bounded_array_v<T>;
+inline constexpr bool is_bounded_array_v STDBP_CPP17_DEPRECATED = std::is_bounded_array_v<T>;
 
 template <typename T>
-using is_unbounded_array STDBP_DEPRECATED = std::is_unbounded_array<T>;
+using is_unbounded_array STDBP_CPP17_DEPRECATED = std::is_unbounded_array<T>;
 
 template <typename T>
-inline constexpr bool is_unbounded_array_v STDBP_DEPRECATED = std::is_unbounded_array_v<T>;
+inline constexpr bool is_unbounded_array_v STDBP_CPP17_DEPRECATED = std::is_unbounded_array_v<T>;
 
 #endif
 
@@ -77,10 +77,10 @@ using remove_cvref_t = typename remove_cvref<T>::type;
 #else
 
 template <typename T>
-using remove_cvref STDBP_DEPRECATED = std::remove_cvref<T>;
+using remove_cvref STDBP_CPP17_DEPRECATED = std::remove_cvref<T>;
 
 template <typename T>
-using remove_cvref_t STDBP_DEPRECATED = std::remove_cvref_t<T>;
+using remove_cvref_t STDBP_CPP17_DEPRECATED = std::remove_cvref_t<T>;
 
 #endif
 
@@ -97,10 +97,10 @@ using type_identity_t = typename type_identity<T>::type;
 #else
 
 template <typename T>
-using type_identity STDBP_DEPRECATED = std::type_identity<T>;
+using type_identity STDBP_CPP17_DEPRECATED = std::type_identity<T>;
 
 template <typename T>
-using type_identity_t STDBP_DEPRECATED = std::type_identity_t<T>;
+using type_identity_t STDBP_CPP17_DEPRECATED = std::type_identity_t<T>;
 
 #endif
 
@@ -127,13 +127,13 @@ inline constexpr bool is_scoped_enum_v = is_scoped_enum<T>::value;
 #else
 
 template <typename T>
-using is_scoped_enum STDBP_DEPRECATED = std::is_scoped_enum<T>;
+using is_scoped_enum STDBP_CPP17_DEPRECATED = std::is_scoped_enum<T>;
 
 template <typename T>
-inline constexpr bool is_scoped_enum_v STDBP_DEPRECAED = std::is_scoped_enum_v<T>;
+inline constexpr bool is_scoped_enum_v STDBP_CPP17_DEPRECAED = std::is_scoped_enum_v<T>;
 
 #endif
 
-STDBP_NAMESPACE_END
+STDBP_CPP17_NAMESPACE_END
 
 #endif

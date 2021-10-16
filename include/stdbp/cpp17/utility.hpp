@@ -1,11 +1,10 @@
-#ifndef STDBP_UTILITY_HPP
-#define STDBP_UTILITY_HPP
+#ifndef STDBP_CPP17_UTILITY_HPP_INCLUDE
+#define STDBP_CPP17_UTILITY_HPP_INCLUDE
 
-#include <type_traits>
+#include <stdbp/cpp17/common.hpp>
+#include <stdbp/cpp17/type_traits.hpp>
 
-#include "type_traits.hpp"
-
-STDBP_NAMESPACE_BEGIN
+STDBP_CPP17_NAMESPACE_BEGIN
 
 #ifndef __cpp_lib_cmp_equal
 
@@ -66,22 +65,22 @@ cmp_greater_equal(T t, U u) noexcept {
 #else
 
 template <typename T, typename U>
-using cmp_equal STDBP_DEPRECATED = std::cmp_equal<T, U>;
+using cmp_equal STDBP_CPP17_DEPRECATED = std::cmp_equal<T, U>;
 
 template <typename T, typename U>
-using cmp_not_equal STDBP_DEPRECATED = std::cmp_not_equal<T, U>;
+using cmp_not_equal STDBP_CPP17_DEPRECATED = std::cmp_not_equal<T, U>;
 
 template <typename T, typename U>
-using cmp_less STDBP_DEPRECATED = std::cmp_less<T, U>;
+using cmp_less STDBP_CPP17_DEPRECATED = std::cmp_less<T, U>;
 
 template <typename T, typename U>
-using cmp_greater STDBP_DEPRECATED = std::cmp_greater<T, U>;
+using cmp_greater STDBP_CPP17_DEPRECATED = std::cmp_greater<T, U>;
 
 template <typename T, typename U>
-using cmp_less_equal STDBP_DEPRECATED = std::cmp_less_equal<T, U>;
+using cmp_less_equal STDBP_CPP17_DEPRECATED = std::cmp_less_equal<T, U>;
 
 template <typename T, typename U>
-using cmp_greater_equal STDBP_DEPRECATED = std::cmp_greater_equal<T, U>;
+using cmp_greater_equal STDBP_CPP17_DEPRECATED = std::cmp_greater_equal<T, U>;
 
 #endif
 
@@ -99,10 +98,10 @@ to_underlying(Enum e) noexcept {
 #else
 
 template <typename Enum>
-using to_underlying STDBP_DEPRECATED = std::to_underlying<Enum>;
+using to_underlying STDBP_CPP17_DEPRECATED = std::to_underlying<Enum>;
 
 #endif
 
-STDBP_NAMESPACE_END
+STDBP_CPP17_NAMESPACE_END
 
 #endif

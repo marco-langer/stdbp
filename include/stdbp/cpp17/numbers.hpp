@@ -1,13 +1,14 @@
-#ifndef STDBP_NUMBERS_HPP
-#define STDBP_NUMBERS_HPP
+#ifndef STDBP_CPP17_NUMBERS_HPP_INCLUDE
+#define STDBP_CPP17_NUMBERS_HPP_INCLUDE
+
+#include <stdbp/cpp17/common.hpp>
 
 #include <type_traits>
-
 #ifdef __cpp_lib_math_constants
 #include <numbers>
 #endif
 
-STDBP_NAMESPACE_BEGIN
+STDBP_CPP17_NAMESPACE_BEGIN
 
 namespace numbers {
 
@@ -22,14 +23,14 @@ inline constexpr auto pi = pi_v<double>;
 #else
 
 template <typename >
-using pi_v STDBP_DEPRECATED = std::numbers::pi_v<T>;
+using pi_v STDBP_CPP17_DEPRECATED = std::numbers::pi_v<T>;
 
-inline constexpr auto pi STDBP_DEPRECATED = std::numbers::pi_v<double>;
+inline constexpr auto pi STDBP_CPP17_DEPRECATED = std::numbers::pi_v<double>;
 
 #endif
 
 } // namespace numbers
 
-STDBP_NAMESPACE_END
+STDBP_CPP17_NAMESPACE_END
 
 #endif
