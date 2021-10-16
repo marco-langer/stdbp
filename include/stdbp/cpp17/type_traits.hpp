@@ -132,7 +132,6 @@ using is_scoped_enum STDBP_DEPRECATED = std::is_scoped_enum<T>;
 template <typename T>
 inline constexpr bool is_scoped_enum_v STDBP_DEPRECAED = std::is_scoped_enum_v<T>;
 
-
 #endif
 
 STDBP_NAMESPACE_END

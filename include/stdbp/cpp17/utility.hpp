@@ -20,14 +20,68 @@ cmp_equal(T t, U u) noexcept {
   } else if constexpr (std::is_signed_v<T>) {
     return t < 0 ? false : UT(t) == u;
   } else {
-    return u < 0 ? false : UU(u) == t;
+    return u < 0 ? false : t == UU(u);
   }
+}
+
+template <typename T, typename U>
+constexpr std::enable_if_t<detail::is_standard_integer<T> && detail::is_standard_integer<U>, bool>
+cmp_not_equal(T t, U u) noexcept {
+  return !cmp_equal(t, u);
+}
+
+template <typename T, typename U>
+constexpr std::enable_if_t<detail::is_standard_integer<T> && detail::is_standard_integer<U>, bool>
+cmp_less(T t, U u) noexcept {
+  using UT = std::make_unsigned_t<T>;
+  using UU = std::make_unsigned_t<U>;
+
+  if constexpr (std::is_signed_v<T> && std::is_signed_v<U>) {
+    return t < u;
+  } else if constexpr (std::is_signed_v<T>) {
+    return t < 0 ? true : UT(t) < u;
+  } else {
+    return u < 0 ? false : t < UU(u);
+  }
+}
+
+template <typename T, typename U>
+constexpr std::enable_if_t<detail::is_standard_integer<T> && detail::is_standard_integer<U>, bool>
+cmp_greater(T t, U u) noexcept {
+  return cmp_less(u, t);
+}
+
+template <typename T, typename U>
+constexpr std::enable_if_t<detail::is_standard_integer<T> && detail::is_standard_integer<U>, bool>
+cmp_less_equal(T t, U u) noexcept {
+  return !cmp_greater(t, u);
+}
+
+template <typename T, typename U>
+constexpr std::enable_if_t<detail::is_standard_integer<T> && detail::is_standard_integer<U>, bool>
+cmp_greater_equal(T t, U u) noexcept {
+  return !cmp_less(t, u);
 }
 
 #else
 
 template <typename T, typename U>
 using cmp_equal STDBP_DEPRECATED = std::cmp_equal<T, U>;
+
+template <typename T, typename U>
+using cmp_not_equal STDBP_DEPRECATED = std::cmp_not_equal<T, U>;
+
+template <typename T, typename U>
+using cmp_less STDBP_DEPRECATED = std::cmp_less<T, U>;
+
+template <typename T, typename U>
+using cmp_greater STDBP_DEPRECATED = std::cmp_greater<T, U>;
+
+template <typename T, typename U>
+using cmp_less_equal STDBP_DEPRECATED = std::cmp_less_equal<T, U>;
+
+template <typename T, typename U>
+using cmp_greater_equal STDBP_DEPRECATED = std::cmp_greater_equal<T, U>;
 
 #endif
 
